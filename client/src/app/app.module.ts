@@ -5,6 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgZorroAntdModule, NZ_I18N, en_US } from "ng-zorro-antd";
 import { registerLocaleData } from "@angular/common";
 import { AppRoutingModule } from "./app-routing.module";
+import { FormsModule } from "@angular/forms";
 
 //Ng Bootstrap
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -19,7 +20,6 @@ import { ButtonComponent } from "./shared/button/button.component";
 import { InputComponent } from "./shared/input/input.component";
 import { TableLayoutComponent } from "./shared/table-layout/table-layout.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule } from "@angular/forms";
 
 registerLocaleData(en);
 
