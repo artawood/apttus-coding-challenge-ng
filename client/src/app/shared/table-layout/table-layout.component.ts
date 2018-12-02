@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { GitHubSearchResultService } from "../../git-hub-search-result.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-table-layout",
@@ -7,7 +8,22 @@ import { GitHubSearchResultService } from "../../git-hub-search-result.service";
   styleUrls: ["./table-layout.component.css"]
 })
 export class TableLayoutComponent implements OnInit {
-  constructor(private searchResult: GitHubSearchResultService) {}
+  results: any;
+  constructor(
+    private searchResult: GitHubSearchResultService,
+    private http: HttpClient
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    //makes get request to github API on page load
+    let obs = this.http.get(
+      "https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc"
+    );
+    obs.subscribe(res => {
+      let response = Object.keys(res);
+      this.results = res;
+      console.log(res);
+      console.log(response);
+    });
+  }
 }

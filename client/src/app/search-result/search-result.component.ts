@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.css']
+  selector: "app-search-result",
+  templateUrl: "./search-result.component.html",
+  styleUrls: ["./search-result.component.css"]
 })
 export class SearchResultComponent implements OnInit {
+  input: string = "";
+  data: any;
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  search() {
+    let params = new HttpParams().set("q", this.input);
+    params.append("q", this.input);
+    this.http
+      .get("https://api.github.com/search/repositories", {
+        params: params
+      })
+      .subscribe(res => {
+        this.data = res;
+      });
+    console.log(this.data);
   }
-
 }
