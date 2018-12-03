@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Component({
@@ -7,8 +7,8 @@ import { HttpClient, HttpParams } from "@angular/common/http";
   styleUrls: ["./search-result.component.css"]
 })
 export class SearchResultComponent implements OnInit {
-  input: string = "";
-  data: any;
+  @Input() input: string = "";
+  data: Object;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
