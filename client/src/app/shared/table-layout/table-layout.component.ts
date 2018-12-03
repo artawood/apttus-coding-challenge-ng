@@ -8,22 +8,20 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./table-layout.component.css"]
 })
 export class TableLayoutComponent implements OnInit {
-  results: any;
+  data: Object;
   constructor(
-    private searchResult: GitHubSearchResultService,
-    private http: HttpClient
+    private http: HttpClient,
+    private searchResult: GitHubSearchResultService
   ) {}
 
   ngOnInit() {
-    //makes get request to github API on page load
+    //test
     let obs = this.http.get(
       "https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc"
     );
     obs.subscribe(res => {
-      let response = Object.keys(res);
-      this.results = res;
+      this.data = res;
       console.log(res);
-      console.log(response);
     });
   }
 }
