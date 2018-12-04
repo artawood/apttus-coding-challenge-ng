@@ -1,17 +1,30 @@
-import { Component, NgModule } from "@angular/core";
-//TODO: import input, button, and table here
+import { Component, NgModule, Input, Output } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { GitHubData } from "./git-hub-data";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
-  //TODO: Add directives for input, button and table
 })
 export class AppComponent {
-  //TODO: Declare data as object
-
   title = "client";
 
-  //TODO: Add on submit function that takes the value from the input, and insert as params in the get method
-  //Subscribe (aka promise) { response => data}
+  @Input("data") data: GitHubData;
+  query: string;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {}
+
+  search() {
+    let params = new HttpParams().set("q", this.query);
+    let obs = this.http.get<any>("https://api.github.com/search/repositories", {
+      params: params
+    });
+    obs.subscribe(res => {
+      this.data = res;
+      console.log(res);
+    });
+  }
 }

@@ -5,6 +5,18 @@
 <nz-table #basicTable class="table table-striped" [nzData]="data.items">
   <thead>
     <tr>
+      <!--
+        <th
+          nzShowSort
+          nzShowFilter
+          [(nzSort)]="sortMap.id"
+          (nzSortChange)="sort('id', $event)"
+          [nzFilters]="filterId"
+          (nzFilterChange)="search($event, gitHubRepo)"
+        >
+          Id
+        </th>
+      -->
       <th scope="col">Id</th>
       <th scope="col">Repository Name</th>
       <th scope="col">Description</th>
