@@ -13,9 +13,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 //Components
 import { AppComponent } from "./app.component";
 import { JumbotronComponent } from "./jumbotron/jumbotron.component";
-import { SearchFieldComponent } from "./search-field/search-field.component";
-import { SearchResultComponent } from "./search-result/search-result.component";
 //Shared Components
+import { FormComponent } from "./shared/form/form.component";
 import { ButtonComponent } from "./shared/button/button.component";
 import { InputComponent } from "./shared/input/input.component";
 import { TableLayoutComponent } from "./shared/table-layout/table-layout.component";
@@ -29,9 +28,8 @@ registerLocaleData(en);
     JumbotronComponent,
     ButtonComponent,
     InputComponent,
-    SearchFieldComponent,
     TableLayoutComponent,
-    SearchResultComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,

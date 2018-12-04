@@ -3,10 +3,23 @@
 
 <!-- Search Field Section -->
 <section id="search-field">
-  <div class="container"><app-search-field></app-search-field></div>
+  <div class="container">
+    <div class="row">
+      <app-input class="col-10" [(ngModel)]="query"></app-input>
+      <!-- <input type="text" [(ngModel)]="query" /> -->
+      <app-button class="col-2" (click)="search()"></app-button>
+      <!--
+        <button type="button" class="btn btn-primary btn-lg" (click)="search()">
+          Search
+        </button>
+      -->
+    </div>
+  </div>
 </section>
 
 <!-- Search Result Section -->
 <section id="search-result">
-  <div class="container"><app-search-result></app-search-result></div>
+  <div class="container">
+    <app-table-layout [data]="data"></app-table-layout>
+  </div>
 </section>
