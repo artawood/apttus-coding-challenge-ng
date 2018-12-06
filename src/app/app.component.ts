@@ -11,7 +11,7 @@ export class AppComponent {
   title = "client";
 
   @Input("data") data: GitHubData;
-  query: string;
+  @Input("query") query: string;
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +26,6 @@ export class AppComponent {
       this.data = res;
       console.log(res);
     });
+    console.log(this.query);
   }
 }

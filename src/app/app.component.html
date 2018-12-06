@@ -5,14 +5,15 @@
 <section id="search-field">
   <div class="container">
     <div class="row">
-      <app-input class="col-10" [(ngModel)]="query"></app-input>
-      <!-- <input type="text" [(ngModel)]="query" /> -->
+      <div class="col-10">
+        <input
+          type="text"
+          class="input-group input-group-lg"
+          [(ngModel)]="query"
+        />
+        <!-- <app-input [(ngModel)]="query"></app-input> -->
+      </div>
       <app-button class="col-2" (click)="search()"></app-button>
-      <!--
-        <button type="button" class="btn btn-primary btn-lg" (click)="search()">
-          Search
-        </button>
-      -->
     </div>
   </div>
 </section>

@@ -5,24 +5,13 @@
 <nz-table #basicTable class="table table-striped" [nzData]="data.items">
   <thead>
     <tr>
-      <!--
-        <th
-          nzShowSort
-          nzShowFilter
-          [(nzSort)]="sortMap.id"
-          (nzSortChange)="sort('id', $event)"
-          [nzFilters]="filterId"
-          (nzFilterChange)="search($event, gitHubRepo)"
-        >
-          Id
-        </th>
-      -->
       <th scope="col">Id</th>
       <th scope="col">Repository Name</th>
       <th scope="col">Description</th>
       <th scope="col">Stars</th>
       <th scope="col">License</th>
       <th scope="col">Forks</th>
+      <th scope="col">Links</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +21,12 @@
       <td>{{ data.description }}</td>
       <td>{{ data.stargazers_count }}</td>
       <td>{{ data.license }}</td>
-      <td>{{ data.html_url }}</td>
+      <td>{{ data.forks }}</td>
+      <td>
+        <a href="{{data.html_url}}" target="_blank"
+          >Go to repo <i class="fas fa-chevron-circle-right"></i
+        ></a>
+      </td>
     </tr>
   </tbody>
 </nz-table>
